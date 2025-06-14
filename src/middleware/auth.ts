@@ -12,7 +12,7 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
- */
+
 import bcrypt from 'bcrypt';
 import { NextFunction, Request, Response } from 'express';
 
@@ -87,6 +87,20 @@ const verifyToken = (req: Request, res: Response, next: NextFunction): any => {
       message: error,
     });
   }
+};
+
+export default verifyToken;
+ */
+
+
+import { NextFunction, Request, Response } from 'express';
+
+const verifyToken = (req: Request, res: Response, next: NextFunction): any => {
+  // 🔓 Token desactivado - acceso libre a todos los endpoints
+  req.session = req.params.session;
+  req.token = '';
+  req.client = null;
+  next();
 };
 
 export default verifyToken;
