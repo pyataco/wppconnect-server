@@ -99,7 +99,11 @@ const verifyToken = (req: Request, res: Response, next: NextFunction): any => {
   // 🔓 Token desactivado - acceso libre a todos los endpoints
   req.session = req.params.session;
   req.token = '';
-  req.client = null;
+  req.client = {
+      urlcode: '',
+      status: '',
+    } as any;
+  
   next();
 };
 
