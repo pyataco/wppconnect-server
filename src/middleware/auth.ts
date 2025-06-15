@@ -104,7 +104,7 @@ const verifyToken = (req: Request, res: Response, next: NextFunction): any => {
       status: '',
     } as any;
   
-  next();
+  return next();
 };
 
 export default verifyToken;
