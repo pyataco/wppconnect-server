@@ -129,12 +129,12 @@ export async function startAllSessions(
 
   const allSessions = await getAllTokens(req);
 
-  if (tokenDecrypt !== req.serverOptions.secretKey) {
-    res.status(400).json({
-      response: 'error',
-      message: 'The token is incorrect',
-    });
-  }
+  /*if (tokenDecrypt !== req.serverOptions.secretKey) {
+  res.status(400).json({
+    response: 'error',
+    message: 'The token is incorrect',
+   });
+*/}
 
   allSessions.map(async (session: string) => {
     const util = new CreateSessionUtil();
